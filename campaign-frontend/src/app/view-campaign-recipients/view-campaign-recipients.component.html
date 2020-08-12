@@ -1,0 +1,48 @@
+<div class="recipient">
+  <h2>Album Campaign Recipients List</h2>
+
+  <div class="spinner-container" *ngIf="dataSource.loading$ | async">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-table
+    class="table mat-elevation-z8"
+    [dataSource]="dataSource"
+    matSort
+    matSortActive="last"
+    matSortDirection="asc"
+    matSortDisableClear
+  >
+    <ng-container matColumnDef="first">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>First</mat-header-cell>
+
+      <mat-cell *matCellDef="let recipient">{{ recipient.first }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="last">
+      <mat-header-cell *matHeaderCellDef>Last</mat-header-cell>
+
+      <mat-cell class="last-cell" *matCellDef="let recipient">{{
+        recipient.last
+      }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+
+      <mat-cell class="email-cell" *matCellDef="let recipient">{{
+        recipient.emailAddress
+      }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <!--<mat-paginator
+    [length]="course?.lessonsCount"
+    [pageSize]="3"
+    [pageSizeOptions]="[3, 5, 10]"
+  ></mat-paginator>-->
+</div>

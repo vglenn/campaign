@@ -1,0 +1,38 @@
+<div class="container">
+  <header>
+    <h2>Campaign Runner</h2>
+  </header>
+  <h3 class="spinner-container" *ngIf="recipientsAddedStatusId">
+    Your campaign status id is {{ recipientsAddedStatusId }}. Please use the
+    Check Status menu option to see the status. Or Run Campaign to run a new
+    campaign.
+  </h3>
+
+  <h3 class="spinner-container" *ngIf="noResults">
+    Your campaign year returned no resutls, please try a different year.
+  </h3>
+
+  <div class="spinner-container" *ngIf="!recipientsAddedStatusId">
+    <!--<mat-spinner></mat-spinner>-->
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <mat-form-field appearance="fill">
+        <mat-label for="year">Please Enter Album Year</mat-label>
+        <input
+          type="text"
+          name="year"
+          id="year"
+          maxlength="4"
+          formControlName="year"
+          matInput
+        />
+      </mat-form-field>
+      <div
+        *ngIf="form.get('year') && form.get('year').errors as yearErrors"
+        class="error"
+      ></div>
+      <br />
+      <button mat-button color="primary">Contact Producers</button>
+    </form>
+  </div>
+</div>

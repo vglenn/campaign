@@ -1,0 +1,32 @@
+.recipient {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.last-cell {
+  text-align: left;
+  margin: 10px auto;
+}
+
+.email-cell mat-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+  text-align: left;
+}
+
+.spinner-container {
+  height: 360px;
+  width: 390px;
+  position: fixed;
+}
+
+.table {
+  min-height: 360px;
+  margin-top: 10px;
+}
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
+}
